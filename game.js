@@ -15,7 +15,9 @@ const game = (() => {
 
   const launch = () => {
     launched = true;
-    createBalls();
+    balls.forEach(ball => {
+      ball.calcVelocities(launchAngle);
+    });
   }
 
   const rotate = (direction) => {
@@ -51,9 +53,6 @@ const game = (() => {
     BallDirection.changeAngle(launchAngle);
     ctx.restore();
     if (launched === true) {
-      balls.forEach((ball) => {
-        ball.move(launchAngle);
-      });
     }
   }
 

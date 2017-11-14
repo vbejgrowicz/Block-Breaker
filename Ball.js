@@ -15,8 +15,8 @@ class Ball {
     ctx.fillStyle = this.color;
     ctx.fill();
   }
-  move(launchAngle) {
-    this.calcVelocities(launchAngle);
+  move() {
+    Boundary.checkBoundary(this);
     this.x += this.dx;
     this.y += this.dy;
     this.draw();
