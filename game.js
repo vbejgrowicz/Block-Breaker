@@ -9,7 +9,7 @@ const game = (() => {
 
   const createBalls = () => {
     for (i = 0; i < numOfBalls; i+= 1) {
-      balls.push(new Ball(0, 250, 690));
+      balls.push(new Ball(0, 250, 685));
     }
   }
 
@@ -47,7 +47,8 @@ const game = (() => {
     // console.log(timestamp);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
-    BallDirection.rotate(launchAngle);
+    balls[0].draw();
+    BallDirection.changeAngle(launchAngle);
     if (launched === true) {
       balls.forEach((ball) => {
         ball.move();
@@ -59,6 +60,7 @@ const game = (() => {
   return {
     init() {
       setupEventListeners();
+      createBalls();
       updateCanvas();
     },
   };
