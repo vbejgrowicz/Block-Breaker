@@ -30,6 +30,11 @@ const game = (() => {
     }
   }
 
+  const initTurn = () => {
+    launched = false;
+    createBalls();
+  }
+
   const setupEventListeners = () => {
     document.addEventListener("keydown", key => {
       if (key.keyCode === 32) {
@@ -52,14 +57,22 @@ const game = (() => {
     balls[0].draw();
     BallDirection.changeAngle(launchAngle);
     ctx.restore();
+    balls = balls.filter(ball => !Boundary.checkOut(ball));
     if (launched === true) {
+      if (balls.length > 0) {
+        balls.forEach((ball) => {
+          ball.move();
+        });
+      } else {
+        initTurn();
+      }
     }
   }
 
   return {
     init() {
       setupEventListeners();
-      createBalls();
+      initTurn();
       updateCanvas();
     },
   };
