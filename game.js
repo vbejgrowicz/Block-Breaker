@@ -49,12 +49,12 @@ const game = (() => {
     ctx.save();
     balls[0].draw();
     BallDirection.changeAngle(launchAngle);
+    ctx.restore();
     if (launched === true) {
       balls.forEach((ball) => {
-        ball.move();
+        ball.move(launchAngle);
       });
     }
-    ctx.restore();
   }
 
   return {

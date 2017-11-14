@@ -5,7 +5,9 @@ class Ball {
     this.y = y;
     this.radius = 10;
     this.color = 'blue';
-    this.dy = 1;
+    this.velocity = 5;
+    this.dx;
+    this.dy;
   }
   draw() {
     ctx.beginPath();
@@ -13,8 +15,15 @@ class Ball {
     ctx.fillStyle = this.color;
     ctx.fill();
   }
-  move() {
-    this.y -= this.dy;
+  move(launchAngle) {
+    this.calcVelocities(launchAngle);
+    this.x += this.dx;
+    this.y += this.dy;
     this.draw();
+  }
+  calcVelocities(launchAngle) {
+    const angleInRad = (90 - launchAngle) * (Math.PI / 180);
+    this.dx = this.velocity * Math.cos(angleInRad);
+    this.dy = - (this.velocity * Math.sin(angleInRad));
   }
 }
