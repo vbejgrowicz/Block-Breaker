@@ -5,6 +5,7 @@ const game = (() => {
   let numOfBalls = 1;
   let balls = [];
   let launched = false;
+  let launchAngle = 0;
 
   const createBalls = () => {
     for (i = 0; i < numOfBalls; i+= 1) {
@@ -14,11 +15,17 @@ const game = (() => {
 
   const launch = () => {
     launched = true;
-    console.log('launched');
+    createBalls();
   }
 
   const rotate = (direction) => {
-    console.log(direction);
+    if (launched === false) {
+      if (direction === 'Left') {
+        launchAngle -= 1;
+      } else if (direction === 'Right') {
+        launchAngle += 1;
+      }
+    }
   }
 
   const setupEventListeners = () => {
@@ -37,19 +44,21 @@ const game = (() => {
 
   const updateCanvas = (timestamp) => {
     requestAnimationFrame(updateCanvas);
-    console.log(timestamp);
+    // console.log(timestamp);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    BallDirection.rotate(launchAngle);
     if (launched === true) {
       balls.forEach((ball) => {
         ball.move();
       });
     }
+    ctx.restore();
   }
 
   return {
     init() {
       setupEventListeners();
-      createBalls();
       updateCanvas();
     },
   };
