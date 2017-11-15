@@ -37,6 +37,7 @@ const game = (() => {
     launched = false;
     count = 0;
     startTime = 0;
+    numOfBalls += 1;
   }
 
   const setupEventListeners = () => {
