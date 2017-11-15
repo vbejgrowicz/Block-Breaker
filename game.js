@@ -10,6 +10,11 @@ const game = (() => {
   let count = 0;
 
   const createBalls = (timestamp) => {
+    if (launched === false && count === 0) {
+      let stationaryBall = new Ball(0, 250, 685)
+      balls.push(stationaryBall);
+      count += 1;
+    }
     while (count < numOfBalls && timestamp - startTime > 75 && launched === true) {
       let newBall = new Ball(0, 250, 685)
       newBall.calcVelocities(launchAngle);
@@ -21,14 +26,17 @@ const game = (() => {
 
   const launch = () => {
     launched = true;
+    count = 0;
   }
 
   const rotate = (direction) => {
     if (launched === false) {
       if (direction === 'Left') {
         launchAngle -= 5;
+        balls[0].calcVelocities(launchAngle);
       } else if (direction === 'Right') {
         launchAngle += 5;
+        balls[0].calcVelocities(launchAngle);
       }
     }
   }
@@ -70,12 +78,15 @@ const game = (() => {
       } else {
         initTurn();
       }
+    } else {
+      balls[0].draw();
     }
   }
 
   return {
     init() {
       setupEventListeners();
+      startGame();
       updateCanvas();
     },
   };
