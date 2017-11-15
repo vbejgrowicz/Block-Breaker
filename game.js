@@ -2,12 +2,21 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 const game = (() => {
-  let numOfBalls = 1;
-  let balls = [];
-  let launched = false;
-  let launchAngle = 0;
-  let startTime = 0;
-  let count = 0;
+  let numOfBalls;
+  let balls;
+  let launched;
+  let launchAngle;
+  let startTime;
+  let count;
+
+  const startGame = () => {
+    numOfBalls = 1;
+    balls = [];
+    launched = false;
+    launchAngle = 0;
+    startTime = 0;
+    count = 0;
+  }
 
   const createBalls = (timestamp) => {
     if (launched === false && count === 0) {
