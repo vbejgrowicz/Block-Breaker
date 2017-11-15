@@ -6,18 +6,21 @@ const game = (() => {
   let balls = [];
   let launched = false;
   let launchAngle = 0;
+  let startTime = 0;
+  let count = 0;
 
-  const createBalls = () => {
-    for (i = 0; i < numOfBalls; i+= 1) {
-      balls.push(new Ball(0, 250, 685));
+  const createBalls = (timestamp) => {
+    while (count < numOfBalls && timestamp - startTime > 75 && launched === true) {
+      let newBall = new Ball(0, 250, 685)
+      newBall.calcVelocities(launchAngle);
+      balls.push(newBall);
+      startTime = timestamp;
+      count += 1;
     }
   }
 
   const launch = () => {
     launched = true;
-    balls.forEach(ball => {
-      ball.calcVelocities(launchAngle);
-    });
   }
 
   const rotate = (direction) => {
@@ -32,12 +35,13 @@ const game = (() => {
 
   const initTurn = () => {
     launched = false;
-    createBalls();
+    count = 0;
+    startTime = 0;
   }
 
   const setupEventListeners = () => {
     document.addEventListener("keydown", key => {
-      if (key.keyCode === 32) {
+      if (key.keyCode === 32 && launched === false) {
         launch();
       }
       if (key.keyCode === 37) {
@@ -51,12 +55,11 @@ const game = (() => {
 
   const updateCanvas = (timestamp) => {
     requestAnimationFrame(updateCanvas);
-    // console.log(timestamp);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
-    balls[0].draw();
     BallDirection.changeAngle(launchAngle);
     ctx.restore();
+    createBalls(timestamp);
     balls = balls.filter(ball => !Boundary.checkOut(ball));
     if (launched === true) {
       if (balls.length > 0) {
@@ -72,7 +75,6 @@ const game = (() => {
   return {
     init() {
       setupEventListeners();
-      initTurn();
       updateCanvas();
     },
   };
