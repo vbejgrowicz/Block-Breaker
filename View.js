@@ -1,6 +1,7 @@
 const View = {
   drawBlocks(blocks) {
     blocks.forEach(block => block.draw());
+    blocks.forEach(block => block.drawNum());
   },
   moveBalls(balls) {
     balls = balls.filter(ball => !Boundary.checkOut(ball));
