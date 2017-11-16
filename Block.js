@@ -23,4 +23,8 @@ class Block {
     ctx.fillStyle = 'white';
     ctx.fillText(this.number, this.x + 20 , this.y + 35);
   }
+  move() {
+    this.y += 60;
+    this.draw();
+  }
 }

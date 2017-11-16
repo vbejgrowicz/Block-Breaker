@@ -3,6 +3,9 @@ const View = {
     blocks.forEach(block => block.draw());
     blocks.forEach(block => block.drawNum());
   },
+  moveBlocks(blocks) {
+    blocks.forEach(block => block.move());
+  },
   moveBalls(balls) {
     balls = balls.filter(ball => !Boundary.checkOut(ball));
     balls.forEach(ball => {

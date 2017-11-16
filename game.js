@@ -60,6 +60,7 @@ const game = (() => {
     count = 0;
     startTime = 0;
     numOfBalls += 1;
+    View.moveBlocks(blocks);
     createBlocks();
   }
 
