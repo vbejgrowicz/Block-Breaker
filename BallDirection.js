@@ -10,7 +10,6 @@ const BallDirection = {
   },
   changeAngle(angle) {
     ctx.translate(250,685);
-    console.log(angle);
     ctx.rotate(angle * Math.PI/180);
     this.draw();
     ctx.translate(-250,-685);

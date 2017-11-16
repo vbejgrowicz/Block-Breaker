@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 const game = (() => {
   let numOfBalls;
   let balls;
+  let blocks;
   let launched;
   let launchAngle;
   let startTime;
@@ -12,10 +13,24 @@ const game = (() => {
   const startGame = () => {
     numOfBalls = 1;
     balls = [];
+    blocks = [];
     launched = false;
     launchAngle = 0;
     startTime = 0;
     count = 0;
+    createBlocks();
+  }
+
+  const createBlocks = () => {
+    //temp blocks in all x positions  // y positions + 60
+    blocks.push(new Block(0, 6.66, 5))
+    blocks.push(new Block(0, 68.32, 5))
+    blocks.push(new Block(0, 129.98, 5))
+    blocks.push(new Block(0, 191.64, 5))
+    blocks.push(new Block(0, 253.3, 5))
+    blocks.push(new Block(0, 314.96, 5))
+    blocks.push(new Block(0, 376.62, 5))
+    blocks.push(new Block(0, 438.28, 5))
   }
 
   const createBalls = (timestamp) => {
@@ -78,6 +93,7 @@ const game = (() => {
     BallDirection.changeAngle(launchAngle);
     ctx.restore();
     createBalls(timestamp);
+    blocks.forEach(block => block.draw());
     balls = balls.filter(ball => !Boundary.checkOut(ball));
     if (launched === true) {
       if (balls.length > 0) {
