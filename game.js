@@ -47,9 +47,9 @@ const game = (() => {
 
   const rotate = (direction) => {
     if (launched === false) {
-      if (direction === 'Left') {
+      if (direction === 'Left' && launchAngle > -85) {
         launchAngle -= 5;
-      } else if (direction === 'Right') {
+      } else if (direction === 'Right' && launchAngle < 85) {
         launchAngle += 5;
       }
     }
