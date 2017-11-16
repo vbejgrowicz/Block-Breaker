@@ -1,19 +1,19 @@
 const View = {
-  drawBlocks(blocks) {
+  drawBlocks() {
     blocks.forEach(block => block.draw());
     blocks.forEach(block => block.drawNum());
   },
-  moveBlocks(blocks) {
+  moveBlocks() {
     blocks.forEach(block => block.move());
   },
-  moveBalls(balls) {
+  moveBalls() {
     balls = balls.filter(ball => !Boundary.checkOut(ball));
     balls.forEach(ball => {
       ball.move();
     });
     return balls;
   },
-  drawLauncher(launchAngle) {
+  drawLauncher() {
     const launchball = new Ball(0, 250, 685);
     launchball.draw();
     BallDirection.changeAngle(launchAngle);

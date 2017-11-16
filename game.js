@@ -1,43 +1,21 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-const game = (() => {
-  let numOfBalls;
-  let balls;
-  let blocks;
-  let launched;
-  let launchAngle;
-  let startTime;
-  let count;
+let balls;
+let blocks;
+let launched;
+let numOfBalls;
+let launchAngle;
+let startTime;
+let count;
 
+const game = (() => {
   const startGame = () => {
     numOfBalls = 0;
     balls = [];
     blocks = [];
     launchAngle = 0;
     initTurn();
-  }
-
-  const createBlocks = () => {
-    //temp blocks in all x positions  // y positions + 60
-    blocks.push(new Block(0, 6.66, 5))
-    blocks.push(new Block(0, 68.32, 5))
-    blocks.push(new Block(0, 129.98, 5))
-    blocks.push(new Block(0, 191.64, 5))
-    blocks.push(new Block(0, 253.3, 5))
-    blocks.push(new Block(0, 314.96, 5))
-    blocks.push(new Block(0, 376.62, 5))
-    blocks.push(new Block(0, 438.28, 5))
-  }
-
-  const createBalls = (timestamp) => {
-    while (count < numOfBalls && timestamp - startTime > 75 && launched === true) {
-      let newBall = new Ball(count, 250, 685);
-      newBall.calcVelocities(launchAngle);
-      balls.push(newBall);
-      startTime = timestamp;
-      count += 1;
-    }
   }
 
   const launch = () => {
@@ -60,8 +38,8 @@ const game = (() => {
     count = 0;
     startTime = 0;
     numOfBalls += 1;
-    View.moveBlocks(blocks);
-    createBlocks();
+    View.moveBlocks();
+    Objects.createBlocks();
   }
 
   const setupEventListeners = () => {
@@ -81,13 +59,13 @@ const game = (() => {
   const updateCanvas = (timestamp) => {
     requestAnimationFrame(updateCanvas);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    View.drawBlocks(blocks);
+    View.drawBlocks();
     if (launched) {
-      createBalls(timestamp);
+      Objects.createBalls(timestamp);
       balls.length > 0 ? (balls = View.moveBalls(balls)) : (initTurn());
     } else {
       ctx.save();
-      View.drawLauncher(launchAngle);
+      View.drawLauncher();
       ctx.restore();
     }
   }
