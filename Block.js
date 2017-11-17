@@ -10,19 +10,19 @@ class Block {
     this.color = 'red';
   }
   draw() {
-    ctx.beginPath();
-    ctx.strokeStyle = 'black';
-    ctx.lineWidth = this.border;
-    ctx.strokeRect(this.x + this.border, this.y + this.border, this.width - this.border * 2, this.height - this.border * 2);
-    ctx.rect(this.x + this.border, this.y + this.border, this.width - this.border * 2, this.height - this.border * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-    ctx.closePath();
+    ctxblocks.beginPath();
+    ctxblocks.strokeStyle = 'black';
+    ctxblocks.lineWidth = this.border;
+    ctxblocks.strokeRect(this.x + this.border, this.y + this.border, this.width - this.border * 2, this.height - this.border * 2);
+    ctxblocks.rect(this.x + this.border, this.y + this.border, this.width - this.border * 2, this.height - this.border * 2);
+    ctxblocks.fillStyle = this.color;
+    ctxblocks.fill();
+    ctxblocks.closePath();
   }
   drawNum() {
-    ctx.font = '20px arial';
-    ctx.fillStyle = 'white';
-    ctx.fillText(this.number, this.x + 20 , this.y + 35);
+    ctxblocks.font = '20px arial';
+    ctxblocks.fillStyle = 'white';
+    ctxblocks.fillText(this.number, this.x + 20 , this.y + 35);
   }
   move() {
     this.y += 60;

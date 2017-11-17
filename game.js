@@ -1,5 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const ctxblocks = document.getElementById('blocks').getContext('2d');
 
 let balls;
 let blocks;
@@ -59,7 +60,6 @@ const game = (() => {
   const updateCanvas = (timestamp) => {
     requestAnimationFrame(updateCanvas);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    View.drawBlocks();
     if (launched) {
       Objects.createBalls(timestamp);
       balls.length > 0 ? (balls = View.moveBalls(balls)) : (initTurn());
@@ -70,10 +70,17 @@ const game = (() => {
     }
   }
 
+  const updateBlocks = () => {
+    requestAnimationFrame(updateBlocks);
+    ctxblocks.clearRect(0, 0, canvas.width, canvas.height);
+    View.drawBlocks();
+  }
+
   return {
     init() {
       setupEventListeners();
       startGame();
+      updateBlocks();
       updateCanvas();
     },
   };

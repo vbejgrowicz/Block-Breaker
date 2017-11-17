@@ -2,6 +2,21 @@ body {
   text-align: center;
 }
 
-canvas {
+.game {
+  position: relative;
+}
+
+#canvas {
   border: 1px solid black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#blocks {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 1;
 }
