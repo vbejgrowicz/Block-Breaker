@@ -1,9 +1,13 @@
 const Collision = {
-  getDistance(ball, block){
-    let xDistance = (block.x + (block.width/2)) - ball.x + ball.radius;
-    let yDistance = (block.y + (block.height/2)) - ball.y + ball.radius;
-    let distance = Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-    return distance;
+  getDistance(ball, blockX, blockY){
+    let xDistance = blockX - ball.x;
+    let yDistance = blockY - ball.y;
+    return  Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));;
+  },
+  getMiddleDistance(ball, block){
+    let xMidDistance = block.x + block.width/2 - ball.x;
+    let yMidDistance = block.y + block.width/2 - ball.y;
+    return Math.sqrt(Math.pow(xMidDistance, 2) + Math.pow(yMidDistance, 2));
   },
   resolveCollision(ball, block) {
     const blockLeft = block.x;
@@ -24,7 +28,17 @@ const Collision = {
     }
   },
   checkCollision(ball, block) {
-    if ((this.getDistance(ball, block) - ball.radius - (block.width/2)) < 0) {
+    const blockPointsX = [block.x, block.x + block.width];
+    const blockPointsY = [block.y, block.y + block.height];
+    //check all corners for collisions as well as middle
+    if (
+      (this.getDistance(ball, blockPointsX[0], blockPointsY[0]) - ball.radius < 0) ||
+      (this.getDistance(ball, blockPointsX[0], blockPointsY[1]) - ball.radius < 0) ||
+      (this.getDistance(ball, blockPointsX[1], blockPointsY[0]) - ball.radius < 0) ||
+      (this.getDistance(ball, blockPointsX[1], blockPointsY[1]) - ball.radius < 0)
+    ) {
+      this.resolveCollision(ball, block);
+    } else if (this.getMiddleDistance(ball, block) - ball.radius - block.width/2 < 0) {
       this.resolveCollision(ball, block);
     }
   }
