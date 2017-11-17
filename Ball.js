@@ -5,7 +5,7 @@ class Ball {
     this.y = y;
     this.radius = 10;
     this.color = 'blue';
-    this.velocity = 5;
+    this.velocity = 7;
     this.dx;
     this.dy;
   }
