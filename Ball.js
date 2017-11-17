@@ -17,6 +17,9 @@ class Ball {
   }
   move() {
     Boundary.checkBoundary(this);
+    for (let i = 0; i < blocks.length; i += 1) {
+      Collision.checkCollision(this, blocks[i]);
+    }
     this.x += this.dx;
     this.y += this.dy;
     this.draw();
