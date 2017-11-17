@@ -1,7 +1,7 @@
 class Block {
   constructor(id, x, y) {
     this.id = id;
-    this.number = 1;
+    this.number = Math.floor(Math.random() * 5 + 1);
     this.x = x;
     this.y = y;
     this.width = 55;
@@ -17,6 +17,7 @@ class Block {
     ctx.rect(this.x + this.border, this.y + this.border, this.width - this.border * 2, this.height - this.border * 2);
     ctx.fillStyle = this.color;
     ctx.fill();
+    ctx.closePath();
   }
   drawNum() {
     ctx.font = '20px arial';
