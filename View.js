@@ -1,6 +1,6 @@
 const View = {
   drawBlocks() {
-    blocks = blocks.filter(block => block.number !== 0);
+    blocks = blocks.filter(block => block.number > 0);
     blocks.forEach(block => block.draw());
     blocks.forEach(block => block.drawNum());
   },
