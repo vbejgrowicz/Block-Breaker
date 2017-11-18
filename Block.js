@@ -1,7 +1,7 @@
 class Block {
   constructor(id, x, y) {
     this.id = id;
-    this.number = Math.floor(Math.random() * 5 + 1);
+    this.number = Math.floor(Math.random() * numOfBalls + numOfBalls/2);
     this.x = x;
     this.y = y;
     this.width = 55;
