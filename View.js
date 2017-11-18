@@ -1,4 +1,5 @@
 const currentScoreDisplay = document.getElementById('current-score');
+const numOfBallsDisplay = document.getElementById('ball-count');
 
 const View = {
   drawBlocks() {
@@ -23,5 +24,8 @@ const View = {
   },
   updateCurrentScore() {
     currentScoreDisplay.textContent = currentScore;
+  },
+  updateBallCount() {
+    numOfBallsDisplay.textContent = numOfBalls;
   }
 }

@@ -10,7 +10,7 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  height: 760px;
+  height: 770px;
   width: 550px;
   background-color: #404040;
 }
@@ -40,4 +40,15 @@ body {
   position: absolute;
   top: 35px;
   z-index: 1;
+}
+
+#info-bar {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  font-weight: bold;
+  width: 500px;
+  padding: 5px;
+  color: white;
+  justify-content: flex-end;
 }

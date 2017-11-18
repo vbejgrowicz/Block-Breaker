@@ -43,6 +43,7 @@ const game = (() => {
     numOfBalls += 1;
     View.moveBlocks();
     Objects.createBlocks();
+    View.updateBallCount();
   }
 
   const setupEventListeners = () => {
