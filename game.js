@@ -9,6 +9,7 @@ let numOfBalls;
 let launchAngle;
 let startTime;
 let count;
+let currentScore;
 
 const game = (() => {
   const startGame = () => {
@@ -16,6 +17,7 @@ const game = (() => {
     balls = [];
     blocks = [];
     launchAngle = 0;
+    currentScore = 0;
     initTurn();
   }
 

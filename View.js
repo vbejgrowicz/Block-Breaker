@@ -1,3 +1,5 @@
+const currentScoreDisplay = document.getElementById('current-score');
+
 const View = {
   drawBlocks() {
     blocks = blocks.filter(block => block.number > 0);
@@ -18,5 +20,8 @@ const View = {
     const launchball = new Ball(0, 250, 685);
     launchball.draw();
     BallDirection.changeAngle(launchAngle);
+  },
+  updateCurrentScore() {
+    currentScoreDisplay.textContent = currentScore;
   }
 }

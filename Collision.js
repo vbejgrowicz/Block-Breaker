@@ -16,6 +16,8 @@ const Collision = {
     const blockBottom = block.y + block.height;
 
     block.number -= 1;
+    currentScore += 1;
+    View.updateCurrentScore();
 
     if (ball.x < blockLeft) {
       ball.dx = -ball.dx;
