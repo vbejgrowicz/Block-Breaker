@@ -1,6 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const ctxblocks = document.getElementById('blocks').getContext('2d');
+const colorPicker = document.querySelector('input');
 
 let balls;
 let blocks;
@@ -10,9 +11,11 @@ let launchAngle;
 let startTime;
 let count;
 let currentScore;
+let ballColor;
 
 const game = (() => {
   const startGame = () => {
+    ballColor = colorPicker.value;
     numOfBalls = 0;
     balls = [];
     blocks = [];
@@ -65,6 +68,10 @@ const game = (() => {
     document.querySelector('.settings-btn').addEventListener('click', settings);
     document.getElementById('close-btn').addEventListener('click', settings);
     document.getElementById('continue-btn').addEventListener('click', settings);
+
+    colorPicker.addEventListener('change', () => {
+      ballColor = colorPicker.value;
+    });
   }
 
   const updateCanvas = (timestamp) => {
