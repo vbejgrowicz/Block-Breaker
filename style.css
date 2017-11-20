@@ -52,15 +52,19 @@ body {
   justify-content: space-between;
 }
 
-.settings-modal {
+.modal {
   display: none;
   position: absolute;
   align-self: center;
-  z-index: 2;
+  z-index: 3;
   border: 5px solid #404040;
   padding: 10px;
   width: 300px;
   background-color: red;
+}
+
+.game-over {
+  z-index: 2;
 }
 
 .display-modal {
