@@ -12,10 +12,12 @@ let startTime;
 let count;
 let currentScore;
 let ballColor;
+let gameOver;
 
 const game = (() => {
   const startGame = () => {
     ballColor = colorPicker.value;
+    gameOver = false;
     numOfBalls = 0;
     balls = [];
     blocks = [];
@@ -55,7 +57,7 @@ const game = (() => {
 
   const setupEventListeners = () => {
     document.addEventListener("keydown", key => {
-      if (key.keyCode === 32 && launched === false) {
+      if (key.keyCode === 32 && !launched && !gameOver) {
         launch();
       }
       if (key.keyCode === 37) {
@@ -85,7 +87,7 @@ const game = (() => {
     if (launched) {
       Objects.createBalls(timestamp);
       balls.length > 0 ? (balls = View.moveBalls(balls)) : (initTurn());
-    } else {
+    } else if (!gameOver) {
       ctx.save();
       View.drawLauncher();
       ctx.restore();

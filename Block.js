@@ -26,6 +26,9 @@ class Block {
   }
   move() {
     this.y += 60;
+    if (this.y > (canvas.height - this.height)) {
+      gameOver = true;
+    }
     this.draw();
   }
 }
