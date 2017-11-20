@@ -69,6 +69,11 @@ const game = (() => {
     document.getElementById('close-btn').addEventListener('click', settings);
     document.getElementById('continue-btn').addEventListener('click', settings);
 
+    document.getElementById('newgame-btn').addEventListener('click', () => {
+      startGame();
+      settings();
+    });
+
     colorPicker.addEventListener('change', () => {
       ballColor = colorPicker.value;
     });
