@@ -65,6 +65,7 @@ body {
 
 .game-over {
   z-index: 2;
+  font-weight: bold;
 }
 
 .display-modal {
