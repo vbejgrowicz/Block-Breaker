@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const ctxblocks = document.getElementById('blocks').getContext('2d');
 const colorPicker = document.querySelector('input');
+const newGameBtn = document.querySelectorAll('.newgame-btn');
 
 let balls;
 let blocks;
@@ -49,10 +50,13 @@ const game = (() => {
     View.moveBlocks();
     Objects.createBlocks();
     View.updateBallCount();
+    if (gameOver) {
+      View.gameOver();
+    };
   }
 
   const settings = () => {
-    document.querySelector('.settings-modal').classList.toggle('display-modal');
+    document.querySelector('.settings').classList.toggle('display-modal');
   }
 
   const setupEventListeners = () => {
@@ -71,10 +75,13 @@ const game = (() => {
     document.getElementById('close-btn').addEventListener('click', settings);
     document.getElementById('continue-btn').addEventListener('click', settings);
 
-    document.getElementById('newgame-btn').addEventListener('click', () => {
-      startGame();
-      settings();
-    });
+    for (let i = 0; i < newGameBtn.length; i += 1) {
+      newGameBtn[i].addEventListener('click', () => {
+        startGame();
+        document.querySelector('.settings').classList.remove('display-modal');
+        document.querySelector('.game-over').classList.remove('display-modal');
+      });
+    }
 
     colorPicker.addEventListener('change', () => {
       ballColor = colorPicker.value;

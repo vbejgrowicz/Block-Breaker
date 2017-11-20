@@ -1,4 +1,4 @@
-const currentScoreDisplay = document.getElementById('current-score');
+const currentScoreDisplay = document.querySelector('.current-score');
 const numOfBallsDisplay = document.getElementById('ball-count');
 
 const View = {
@@ -27,5 +27,8 @@ const View = {
   },
   updateBallCount() {
     numOfBallsDisplay.textContent = numOfBalls;
+  },
+  gameOver() {
+    document.querySelector('.game-over').classList.toggle('display-modal');
   }
 }
