@@ -24,6 +24,7 @@ const game = (() => {
     blocks = [];
     launchAngle = 0;
     currentScore = 0;
+    View.updateCurrentScore();
     initTurn();
   }
 

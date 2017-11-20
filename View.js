@@ -1,4 +1,4 @@
-const currentScoreDisplay = document.querySelector('.current-score');
+const currentScoreDisplay = document.querySelectorAll('.current-score');
 const numOfBallsDisplay = document.getElementById('ball-count');
 
 const View = {
@@ -23,7 +23,9 @@ const View = {
     BallDirection.changeAngle(launchAngle);
   },
   updateCurrentScore() {
-    currentScoreDisplay.textContent = currentScore;
+    for (let i = 0; i < currentScoreDisplay.length; i += 1) {
+      currentScoreDisplay[i].textContent = currentScore;
+    }
   },
   updateBallCount() {
     numOfBallsDisplay.textContent = numOfBalls;
