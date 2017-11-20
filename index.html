@@ -15,7 +15,17 @@
       <canvas id="canvas" width="500" height="700"></canvas>
       <canvas id="blocks" width="500" height="700"></canvas>
       <div id="info-bar">
+        <div class="settings-btn"><i class="fa fa-cog" aria-hidden="true"></i></div>
         <div><i class="fa fa-circle" aria-hidden="true"></i> x <span id="ball-count">0</span></div>
+      </div>
+      <div class="settings-modal">
+        <div id="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <button id="newgame-btn">New Game</button>
+        <button id="continue-btn">Continue Game</button>
+        <div class="ball-color-picker">
+          Ball Color
+          <input type="color" value="#0000ff">
+        </div>
       </div>
     </div>
     <script type="text/javascript" src="Boundary.js"></script>
