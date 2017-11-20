@@ -46,6 +46,10 @@ const game = (() => {
     View.updateBallCount();
   }
 
+  const settings = () => {
+    document.querySelector('.settings-modal').classList.toggle('display-modal');
+  }
+
   const setupEventListeners = () => {
     document.addEventListener("keydown", key => {
       if (key.keyCode === 32 && launched === false) {
@@ -58,6 +62,9 @@ const game = (() => {
         rotate('Right');
       }
     });
+    document.querySelector('.settings-btn').addEventListener('click', settings);
+    document.getElementById('close-btn').addEventListener('click', settings);
+    document.getElementById('continue-btn').addEventListener('click', settings);
   }
 
   const updateCanvas = (timestamp) => {
