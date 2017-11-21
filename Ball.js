@@ -1,6 +1,6 @@
 class Ball {
   constructor(id, x, y) {
-    this.id = id;
+    this.id = 'ball' + id;
     this.x = x;
     this.y = y;
     this.radius = 10;

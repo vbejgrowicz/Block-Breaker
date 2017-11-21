@@ -1,6 +1,6 @@
 class Block {
   constructor(id, x, y) {
-    this.id = id;
+    this.id = 'block' + id;
     this.number = Math.floor(Math.random() * numOfBalls + numOfBalls/2);
     this.x = x;
     this.y = y;

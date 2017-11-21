@@ -1,4 +1,5 @@
 const blockXPositions = [6.66, 68.32, 129.98, 191.64, 253.3, 314.96, 376.62, 438.28];
+let numOfBlocks = 0;
 
 const Objects = {
   createUniqRandomNumArr() {
@@ -12,8 +13,9 @@ const Objects = {
   createBlocks() {
     const uniqArr = this.createUniqRandomNumArr();
     for (let i = 0; i < uniqArr.length; i += 1) {
-      let newBlock = new Block(0, blockXPositions[uniqArr[i]], 5);
+      let newBlock = new Block(numOfBlocks, blockXPositions[uniqArr[i]], 5);
       blocks.push(newBlock);
+      numOfBlocks += 1;
     }
   },
   createBalls(timestamp) {
