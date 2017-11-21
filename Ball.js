@@ -23,11 +23,7 @@ class Ball {
       const collided = !!currentCollisions.map((collisionObj) => {
         return collisionObj.getIds();
       }).find(arr => arr.includes(this.id));
-      if (collided) {
-        continue;
-      } else {
-        Collision.checkCollision(this, blocks[i]);
-      }
+      Collision.checkCollision(this, blocks[i], collided);
     }
     this.x += this.dx;
     this.y += this.dy;

@@ -46,10 +46,19 @@ const Collision = {
       ball.dy = -ball.dy;
     }
   },
-  checkCollision(ball, block) {
+  resolveSecondCollision(ball, block) {
+    block.number -= 1;
+    currentScore += 1;
+    View.updateCurrentScore();
+  },
+  checkCollision(ball, block, collided) {
     if (this.checkDistance(ball, block)) {
-      this.resolveCollision(ball, block);
       currentCollisions.push(new CollidedObjects(ball, block));
+      if (collided) {
+        this.resolveSecondCollision(ball, block);
+      } else {
+        this.resolveCollision(ball, block);
+      }
     }
   }
 }
