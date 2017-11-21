@@ -36,12 +36,10 @@ const Collision = {
     currentScore += 1;
     View.updateCurrentScore();
 
-    if (ball.x < blockLeft) {
+    if (ball.x < blockLeft && ball.y > blockTop && ball.y < blockBottom) {
       ball.dx = -ball.dx;
-      ball.dy = -ball.dy;
-    } else if (ball.x > blockRight) {
+    } else if (ball.x > blockRight && ball.y > blockTop && ball.y < blockBottom) {
       ball.dx = -ball.dx
-      ball.dy = -ball.dy;
     } else {
       ball.dy = -ball.dy;
     }
