@@ -49,6 +49,7 @@ const Collision = {
   checkCollision(ball, block) {
     if (this.checkDistance(ball, block)) {
       this.resolveCollision(ball, block);
+      currentCollisions.push(new CollidedObjects(ball, block));
     }
   }
 }

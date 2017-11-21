@@ -14,6 +14,7 @@ let count;
 let currentScore;
 let ballColor;
 let gameOver;
+let currentCollisions;
 
 const game = (() => {
   const startGame = () => {
@@ -24,6 +25,7 @@ const game = (() => {
     blocks = [];
     launchAngle = 0;
     currentScore = 0;
+    currentCollisions = [];
     View.updateCurrentScore();
     initTurn();
   }
@@ -92,6 +94,7 @@ const game = (() => {
   const updateCanvas = (timestamp) => {
     requestAnimationFrame(updateCanvas);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    currentCollisions = currentCollisions.filter(collided => (collided.isCollided()));
     if (launched) {
       Objects.createBalls(timestamp);
       balls.length > 0 ? (balls = View.moveBalls(balls)) : (initTurn());
