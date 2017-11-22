@@ -21,15 +21,21 @@ let ballColor = colorPicker.value;
 
 
 const game = (() => {
-  const startGame = () => {
-    ballColor = colorPicker.value;
-    gameOver = false;
-    numOfBalls = 0;
+  const initGameValues = () => {
+    localStorage.removeItem("gameStatus");
     balls = [];
     blocks = [];
-    launchAngle = 0;
-    currentScore = 0;
     currentCollisions = [];
+    gameOver = false;
+    launched = false;
+    launchAngle = 0;
+    numOfBalls = 0;
+    startTime = 0;
+    currentScore = 0;
+  }
+
+  const startGame = () => {
+    initGameValues();
     View.updateCurrentScore();
     initTurn();
   }
