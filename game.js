@@ -5,6 +5,8 @@ const colorPicker = document.querySelector('input');
 const newGameBtn = document.querySelectorAll('.newgame-btn');
 const localStorageObject = JSON.parse(localStorage.getItem('gameStatus'));
 
+colorPicker.value = localStorage.ballColor || colorPicker.value;
+
 let balls;
 let blocks;
 let launched;
@@ -13,9 +15,10 @@ let launchAngle;
 let startTime;
 let count;
 let currentScore;
-let ballColor;
 let gameOver;
 let currentCollisions;
+let ballColor = colorPicker.value;
+
 
 const game = (() => {
   const startGame = () => {
@@ -89,6 +92,9 @@ const game = (() => {
 
     colorPicker.addEventListener('change', () => {
       ballColor = colorPicker.value;
+      localStorage.setItem("ballColor", ballColor);
+    });
+
     window.addEventListener('unload', () => {
       const gameObject = {
           numOfBalls,
