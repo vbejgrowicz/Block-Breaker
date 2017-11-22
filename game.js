@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const ctxblocks = document.getElementById('blocks').getContext('2d');
 const colorPicker = document.querySelector('input');
 const newGameBtn = document.querySelectorAll('.newgame-btn');
+const localStorageObject = JSON.parse(localStorage.getItem('gameStatus'));
 
 let balls;
 let blocks;
@@ -88,6 +89,15 @@ const game = (() => {
 
     colorPicker.addEventListener('change', () => {
       ballColor = colorPicker.value;
+    window.addEventListener('unload', () => {
+      const gameObject = {
+          numOfBalls,
+          blocks,
+          currentScore,
+        };
+      if (!gameOver && currentScore > 0) {
+        localStorage.setItem("gameStatus", JSON.stringify(gameObject));
+      }
     });
   }
 
