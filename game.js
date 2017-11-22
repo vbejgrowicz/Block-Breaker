@@ -34,6 +34,13 @@ const game = (() => {
     currentScore = 0;
   }
 
+  const loadGame = () => {
+    initGameValues();
+    Objects.loadBlocks(localStorageObject['blocks']);
+    numOfBalls = localStorageObject['numOfBalls'];
+    currentScore = localStorageObject['currentScore'];
+    View.updateInfo();
+  }
   const startGame = () => {
     initGameValues();
     View.updateCurrentScore();
@@ -136,7 +143,11 @@ const game = (() => {
   return {
     init() {
       setupEventListeners();
-      startGame();
+      if (localStorage.hasOwnProperty('gameStatus')) {
+        loadGame();
+      } else {
+        startGame();
+      }
       updateBlocks();
       updateCanvas();
     },

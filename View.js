@@ -30,6 +30,10 @@ const View = {
   updateBallCount() {
     numOfBallsDisplay.textContent = numOfBalls;
   },
+  updateInfo() {
+    this.updateBallCount();
+    this.updateCurrentScore();
+  },
   gameOver() {
     document.querySelector('.game-over').classList.toggle('display-modal');
   }
