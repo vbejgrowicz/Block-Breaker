@@ -2,10 +2,12 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const ctxblocks = document.getElementById('blocks').getContext('2d');
 const colorPicker = document.querySelector('input');
+const ball = document.querySelector('.fa-circle');
 const newGameBtn = document.querySelectorAll('.newgame-btn');
 const localStorageObject = JSON.parse(localStorage.getItem('gameStatus'));
 
 colorPicker.value = localStorage.ballColor || colorPicker.value;
+ball.style.color = colorPicker.value;
 
 let balls;
 let blocks;
@@ -18,7 +20,6 @@ let currentScore;
 let gameOver;
 let currentCollisions;
 let ballColor = colorPicker.value;
-
 
 const game = (() => {
   const initGameValues = () => {
@@ -105,6 +106,7 @@ const game = (() => {
 
     colorPicker.addEventListener('change', () => {
       ballColor = colorPicker.value;
+      ball.style.color = colorPicker.value;
       localStorage.setItem("ballColor", ballColor);
     });
 
