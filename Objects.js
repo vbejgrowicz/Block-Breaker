@@ -19,6 +19,12 @@ const Objects = {
       numOfBlocks += 1;
     }
   },
+  loadBlocks(arr) {
+    for (let i = 0; i < arr.length; i += 1) {
+      let loadedBlock = new Block(arr[i].id, arr[i].x, arr[i].y, arr[i].number);
+      blocks.push(loadedBlock);
+    }
+  },
   createBalls(timestamp) {
     while (count < numOfBalls && timestamp - startTime > 75) {
       let newBall = new Ball(count, 250, 685);
