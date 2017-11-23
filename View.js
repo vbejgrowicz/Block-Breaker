@@ -1,5 +1,6 @@
 const currentScoreDisplay = document.querySelectorAll('.current-score');
 const numOfBallsDisplay = document.getElementById('ball-count');
+const highScoreDisplay = document.getElementById('high-score');
 
 const View = {
   drawBlocks() {
@@ -34,7 +35,19 @@ const View = {
     this.updateBallCount();
     this.updateCurrentScore();
   },
+  updateHighScore() {
+    highScoreDisplay.textContent = highScore;
+
+  },
   gameOver() {
+    if (currentScore > highScore) {
+      localStorage.setItem('BlockBreakerHighScore', currentScore);
+      highScore = currentScore;
+      this.updateHighScore()
+      document.querySelector('.results').textContent = 'New High Score!'
+    } else {
+      document.querySelector('.results').textContent = 'Try Again!'
+    }
     document.querySelector('.game-over').classList.toggle('display-modal');
   }
 }

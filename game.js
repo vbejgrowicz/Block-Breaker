@@ -20,6 +20,7 @@ let currentScore;
 let gameOver;
 let currentCollisions;
 let ballColor = colorPicker.value;
+let highScore = localStorage.getItem('BlockBreakerHighScore') || 0;
 
 const game = (() => {
   const initGameValues = () => {
@@ -145,6 +146,7 @@ const game = (() => {
   return {
     init() {
       setupEventListeners();
+      View.updateHighScore();
       if (localStorage.hasOwnProperty('gameStatus')) {
         loadGame();
       } else {
