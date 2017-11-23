@@ -68,6 +68,11 @@ body {
   font-weight: bold;
 }
 
+.game-results {
+  font-size: 32px;
+  padding: 5px 0;
+}
+
 .display-modal {
   display: block;
 }
