@@ -22,7 +22,8 @@ class Block {
   drawNum() {
     ctxblocks.font = '20px arial';
     ctxblocks.fillStyle = 'white';
-    ctxblocks.fillText(this.number, this.x + 20 , this.y + 35);
+    ctxblocks.textAlign = 'center';
+    ctxblocks.fillText(this.number, this.x + this.width/2, this.y + 35);
   }
   move() {
     this.y += 60;
