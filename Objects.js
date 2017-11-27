@@ -13,7 +13,7 @@ const Objects = {
   createBlocks() {
     const uniqArr = this.createUniqRandomNumArr();
     for (let i = 0; i < uniqArr.length; i += 1) {
-      const value = Math.round(Math.random() * numOfBalls);
+      const value = numOfBalls + (Math.round(Math.random()) * numOfBalls);
       let newBlock = new Block('block' + numOfBlocks, blockXPositions[uniqArr[i]], 5, value);
       blocks.push(newBlock);
       numOfBlocks += 1;
