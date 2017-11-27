@@ -32,18 +32,27 @@ class Block {
     this.draw();
   }
   selectColor() {
-    if (this.number < numOfBalls) {
-      if (this.number < numOfBalls/2) {
-        this.color = '#7272ff';
-      } else {
-        this.color = '#4747e8';
-      }
+    const percentage = this.number / (numOfBalls * 2);
+    if (percentage < 0.1) {
+      this.color = '#E50010';
+    } else if (percentage < 0.2) {
+      this.color = '#E70042';
+    } else if (percentage < 0.3) {
+      this.color = '#EA0075';
+    } else if (percentage < 0.4) {
+      this.color = '#ED00AA';
+    } else if (percentage < 0.5) {
+      this.color = '#F000DF';
+    } else if (percentage < 0.6) {
+      this.color = '#D000F3';
+    } else if (percentage < 0.7) {
+      this.color = '#9E00F6';
+    } else if (percentage < 0.8) {
+      this.color = '#6A00F9';
+    } else if (percentage < 0.9) {
+      this.color = '#3500FC';
     } else {
-      if (this.number < (numOfBalls + numOfBalls/2)) {
-        this.color = '#3535c6';
-      } else {
-        this.color = '#1717c1';
-      }
+      this.color = '#0000FF';
     }
   }
 }
