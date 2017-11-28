@@ -6,14 +6,10 @@ class Block {
     this.y = y;
     this.width = 55;
     this.height = 55;
-    this.border = 3;
   }
   draw() {
     ctxblocks.beginPath();
-    ctxblocks.strokeStyle = 'black';
-    ctxblocks.lineWidth = this.border;
-    ctxblocks.strokeRect(this.x + this.border, this.y + this.border, this.width - this.border * 2, this.height - this.border * 2);
-    ctxblocks.rect(this.x + this.border, this.y + this.border, this.width - this.border * 2, this.height - this.border * 2);
+    ctxblocks.rect(this.x, this.y, this.width, this.height);
     ctxblocks.fillStyle = this.selectColor();
     ctxblocks.fill();
     ctxblocks.closePath();
