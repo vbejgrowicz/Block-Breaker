@@ -44,17 +44,15 @@ const Collision = {
     currentScore += 1;
     View.updateCurrentScore();
 
-    if (hitPosition === 'Middle') {
-      if (ball.x < blockLeft) {
+    if (ball.y + ball.radius > blockBottom || ball.y + ball.radius < blockTop) {
+      if (ball.x + ball.radius < blockLeft || ball.x + ball.radius > blockRight) {
         ball.dx = -ball.dx;
-      } else if (ball.x > blockRight) {
-        ball.dx = -ball.dx;
+        ball.dy = -ball.dy;
       } else {
         ball.dy = -ball.dy;
       }
     } else {
       ball.dx = -ball.dx;
-      ball.dy = -ball.dy;
     }
   },
   resolveSecondCollision(ball, block) {
@@ -64,11 +62,11 @@ const Collision = {
   },
   checkCollision(ball, block, collided) {
     if (this.checkDistance(ball, block)) {
-      currentCollisions.push(new CollidedObjects(ball, block));
-      if (collided) {
-        this.resolveSecondCollision(ball, block);
-      } else {
+      if (!collided) {
+        currentCollisions.push(new CollidedObjects(ball, block));
         this.resolveCollision(ball, block);
+      } else {
+        this.resolveSecondCollision(ball, block);
       }
     }
   }
