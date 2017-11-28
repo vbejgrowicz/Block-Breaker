@@ -3,7 +3,7 @@ let numOfBlocks = 0;
 
 const Objects = {
   createUniqRandomNumArr() {
-    const numOf = 8;
+    const numOf = 6;
     const arr = [];
     for (let i = 0; i < numOf; i += 1) {
       arr.push(Math.floor(Math.random() * 8));
