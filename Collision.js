@@ -1,14 +1,14 @@
 let hitPosition = null;
 const Collision = {
   getDistance(ball, blockX, blockY){
-    let xDistance = blockX - ball.x;
-    let yDistance = blockY - ball.y;
-    return  Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));;
+    let xDistance = Math.abs(blockX - ball.x);
+    let yDistance = Math.abs(blockY - ball.y);
+    return  Math.hypot(xDistance, yDistance);
   },
   getMiddleDistance(ball, block){
-    let xMidDistance = (block.x + block.width/2) - ball.x;
-    let yMidDistance = (block.y + block.width/2) - ball.y;
-    return Math.sqrt(Math.pow(xMidDistance, 2) + Math.pow(yMidDistance, 2));
+    let xMidDistance = Math.abs((block.x + block.width/2) - ball.x);
+    let yMidDistance = Math.abs((block.y + block.width/2) - ball.y);
+    return Math.hypot(xMidDistance, yMidDistance);
   },
   checkDistance(ball, block) {
     const blockPointsX = [block.x, block.x + block.width];
