@@ -60,19 +60,26 @@ const Collision = {
     }
   },
   resolveSecondCollision(ball, block) {
-    block.number -= 1;
-    currentScore += 1;
-    View.updateCurrentScore();
+    if (block) {
+      block.number -= 1;
+      currentScore += 1;
+      View.updateCurrentScore();
+    }
   },
-  checkCollision(ball, block, collided) {
   checkCollisions() {
     let firstHit = null
+    let secondHit = null;
     for (eachBall in balls) {
       for (let i = 0; i < blocks.length; i += 1) {
         if (this.checkDistance(balls[eachBall], blocks[i])) {
           firstHit = blocks[i];
+          for (j = i + 1; j < blocks.length; j += 1) {
+            if (this.checkDistance(balls[eachBall], blocks[j])) {
+              secondHit = blocks[j];
+            }
           }
           this.resolveCollision(balls[eachBall], firstHit);
+          this.resolveSecondCollision(balls[eachBall], secondHit);
         }
       }
     }
