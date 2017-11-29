@@ -65,12 +65,15 @@ const Collision = {
     View.updateCurrentScore();
   },
   checkCollision(ball, block, collided) {
-    if (this.checkDistance(ball, block)) {
-      if (!collided) {
-        currentCollisions.push(new CollidedObjects(ball, block));
-        this.resolveCollision(ball, block);
-      } else {
-        this.resolveSecondCollision(ball, block);
+  checkCollisions() {
+    let firstHit = null
+    for (eachBall in balls) {
+      for (let i = 0; i < blocks.length; i += 1) {
+        if (this.checkDistance(balls[eachBall], blocks[i])) {
+          firstHit = blocks[i];
+          }
+          this.resolveCollision(balls[eachBall], firstHit);
+        }
       }
     }
   }

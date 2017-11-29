@@ -140,6 +140,7 @@ const game = (() => {
   const updateBlocks = () => {
     requestAnimationFrame(updateBlocks);
     ctxblocks.clearRect(0, 0, canvas.width, canvas.height);
+    Collision.checkCollisions();
     View.drawBlocks();
   }
 

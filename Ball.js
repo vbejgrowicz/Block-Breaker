@@ -18,13 +18,6 @@ class Ball {
   }
   move() {
     Boundary.checkBoundary(this);
-    for (let i = 0; i < blocks.length; i += 1) {
-      const currentIds = [this.id, blocks[i].id];
-      const collided = !!currentCollisions.map((collisionObj) => {
-        return collisionObj.getIds();
-      }).find(arr => arr.includes(this.id));
-      Collision.checkCollision(this, blocks[i], collided);
-    }
     this.x += this.dx;
     this.y += this.dy;
     this.draw();
