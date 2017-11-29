@@ -44,15 +44,19 @@ const Collision = {
     currentScore += 1;
     View.updateCurrentScore();
 
-    if (ball.y + ball.radius > blockBottom || ball.y + ball.radius < blockTop) {
-      if (ball.x + ball.radius < blockLeft || ball.x + ball.radius > blockRight) {
-        ball.dx = -ball.dx;
+    if (ball.y + ball.radius > blockBottom || ball.y - ball.radius < blockTop) {
+      if (ball.x < blockLeft || ball.x > blockRight) {
         ball.dy = -ball.dy;
+        ball.y += ball.dy;
+        ball.dx = -ball.dx;
+        ball.x += ball.dx;
       } else {
         ball.dy = -ball.dy;
+        ball.y += ball.dy;
       }
     } else {
       ball.dx = -ball.dx;
+      ball.x += ball.dx;
     }
   },
   resolveSecondCollision(ball, block) {
