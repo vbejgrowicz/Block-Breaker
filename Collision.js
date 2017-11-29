@@ -1,4 +1,4 @@
-let hitPosition = null;
+let hitPosition;
 const Collision = {
   getDistance(ball, blockX, blockY){
     let xDistance = Math.abs(blockX - ball.x);
@@ -15,48 +15,54 @@ const Collision = {
     const blockPointsY = [block.y, block.y + block.height];
     //check all corners for collisions as well as middle
     if (this.getDistance(ball, blockPointsX[0], blockPointsY[0]) - ball.radius < 0) {
-      hitPosition = 'Left';
+      hitPosition = 'Top';
       return true;
     } else if (this.getDistance(ball, blockPointsX[0], blockPointsY[1]) - ball.radius < 0) {
-      hitPosition = 'Left';
+      hitPosition = 'Bottom';
       return true;
     } else if (this.getDistance(ball, blockPointsX[1], blockPointsY[0]) - ball.radius < 0) {
-      hitPosition = 'Right';
+      hitPosition = 'Top';
       return true;
     } else if (this.getDistance(ball, blockPointsX[1], blockPointsY[1]) - ball.radius < 0) {
-      hitPosition = 'Right';
+      hitPosition = 'Bottom';
       return true;
     } else if (this.getMiddleDistance(ball, block) - ball.radius - block.width/2 < 0) {
       hitPosition = 'Middle';
       return true;
     } else {
-      hitPosition = null;
       return false;
     }
   },
   resolveCollision(ball, block) {
     const blockLeft = block.x;
     const blockRight = block.x + block.width;
-    const blockTop = block.y;
-    const blockBottom = block.y + block.height;
 
     block.number -= 1;
     currentScore += 1;
     View.updateCurrentScore();
 
-    if (ball.y + ball.radius > blockBottom || ball.y - ball.radius < blockTop) {
-      if (ball.x < blockLeft || ball.x > blockRight) {
+    if (hitPosition === 'Bottom') {
+      if (ball.dy < 0) {
         ball.dy = -ball.dy;
         ball.y += ball.dy;
+      } else {
         ball.dx = -ball.dx;
         ball.x += ball.dx;
-      } else {
+      }
+    } else if (hitPosition === 'Top') {
+      if (ball.dy > 0) {
         ball.dy = -ball.dy;
         ball.y += ball.dy;
+      } else {
+        ball.dx = -ball.dx;
+        ball.x += ball.dx;
       }
-    } else {
+    } else if (ball.x - ball.radius < blockLeft || ball.x + ball.radius > blockRight){
       ball.dx = -ball.dx;
       ball.x += ball.dx;
+    } else {
+      ball.dy = -ball.dy;
+      ball.y += ball.dy;
     }
   },
   resolveSecondCollision(ball, block) {
