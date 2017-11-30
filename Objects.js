@@ -1,4 +1,4 @@
-const blockXPositions = [6.66, 68.32, 129.98, 191.64, 253.3, 314.96, 376.62, 438.28];
+const blockXPositions = [6.66, 68.32, 129.98, 191.64, 253.3, 314.96, 376.62];
 let numOfBlocks = 0;
 
 const Objects = {
@@ -6,7 +6,7 @@ const Objects = {
     const numOf = 6;
     const arr = [];
     for (let i = 0; i < numOf; i += 1) {
-      arr.push(Math.floor(Math.random() * 8));
+      arr.push(Math.floor(Math.random() * 7));
     }
     return arr.filter((v, i, a) => a.indexOf(v) === i);
   },
