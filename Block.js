@@ -28,23 +28,41 @@ class Block {
   selectColor() {
     const percentage = this.number / (numOfBalls * 2);
     if (percentage < 0.1) {
-      return '#E50010';
+      return '#EE0000';
+    } else if (percentage < 0.15) {
+      return '#EE0019';
     } else if (percentage < 0.2) {
-      return '#E70042';
+      return '#EF0032';
+    } else if (percentage < 0.25) {
+      return '#F0004C';
     } else if (percentage < 0.3) {
-      return '#EA0075';
+      return '#F10065';
+    } else if (percentage < 0.35) {
+      return '#F2007F';
     } else if (percentage < 0.4) {
-      return '#ED00AA';
+      return '#F30099';
+    } else if (percentage < 0.45) {
+      return '#F400B3';
     } else if (percentage < 0.5) {
-      return '#F000DF';
+      return '#F500CE';
+    } else if (percentage < 0.55) {
+      return '#F600E9';
     } else if (percentage < 0.6) {
-      return '#D000F3';
+      return '#E900F6';
+    } else if (percentage < 0.65) {
+      return '#D000F7';
     } else if (percentage < 0.7) {
-      return '#9E00F6';
+      return '#B700F8';
+    } else if (percentage < 0.75) {
+      return '#9D00F9';
     } else if (percentage < 0.8) {
-      return '#6A00F9';
+      return '#8300FA';
+    } else if (percentage < 0.85) {
+      return '#6900FB';
     } else if (percentage < 0.9) {
-      return '#3500FC';
+      return '#4F00FC';
+    } else if (percentage < 0.95) {
+      return '#3500FD';
     } else {
       return '#0000FF';
     }
