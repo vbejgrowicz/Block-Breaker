@@ -5,6 +5,7 @@ body {
   background-color: #6f6f6f;
   color: white;
   font-family: arial;
+  font-weight: bold;
 }
 
 .game {
@@ -12,18 +13,23 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  height: 770px;
-  width: 550px;
+  height: 740px;
+  width: 500px;
   background-color: #404040;
+}
+
+.title {
+  height: 65px;
+  line-height: 65px;
 }
 
 #scores {
   display: flex;
-  font-weight: bold;
-  line-height: 25px;
-  width: 500px;
-  height: 25px;
-  padding: 5px;
+  position: absolute;
+  top: 55px;
+  line-height: 35px;
+  width: 438px;
+  height: 35px;
   justify-content: space-between;
 }
 
@@ -34,13 +40,13 @@ body {
 #canvas {
   background-color: white;
   position: absolute;
-  top: 35px;
+  bottom: 43px;
   z-index: 0;
 }
 
 #blocks {
   position: absolute;
-  top: 35px;
+  bottom: 43px;
   z-index: 1;
 }
 
@@ -48,9 +54,8 @@ body {
   position: absolute;
   bottom: 0;
   display: flex;
-  font-weight: bold;
-  width: 500px;
-  padding: 5px;
+  width: 438px;
+  padding: 10px;
   justify-content: space-between;
 }
 
@@ -62,12 +67,11 @@ body {
   border: 5px solid #404040;
   padding: 10px;
   width: 300px;
-  background-color: #F10065;
+  background-color: #F600E9;
 }
 
 .game-over {
   z-index: 2;
-  font-weight: bold;
 }
 
 .game-results {
@@ -88,10 +92,10 @@ body {
 button {
   text-transform: uppercase;
   display: block;
-  background-color: blue;
+  background-color: #0000FF;
   border: none;
-  width: 200px;
-  height: 35px;
+  width: 230px;
+  height: 40px;
   margin: 10px auto;
   font-size: 20px;
   color: white;
