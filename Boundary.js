@@ -17,7 +17,7 @@ const Boundary = {
     }
   },
   checkGameOver(block) {
-    if (block.y > (canvas.height - block.height)) {
+    if (block.y + block.height >= canvas.height - 5) {
       gameOver = true;
     }
   }

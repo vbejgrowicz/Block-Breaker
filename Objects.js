@@ -27,7 +27,7 @@ const Objects = {
   },
   createBalls(timestamp) {
     while (count < numOfBalls && timestamp - startTime > 75) {
-      let newBall = new Ball(count, 250, 685);
+      let newBall = new Ball(count, canvas.width / 2, canvas.height - 15);
       newBall.calcVelocities(launchAngle);
       balls.push(newBall);
       startTime = timestamp;

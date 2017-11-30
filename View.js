@@ -19,7 +19,7 @@ const View = {
     return balls;
   },
   drawLauncher() {
-    const launchball = new Ball(0, 250, 685);
+    const launchball = new Ball(0, canvas.width/2, canvas.height - 15);
     launchball.draw();
     BallDirection.changeAngle(launchAngle);
   },

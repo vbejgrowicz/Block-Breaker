@@ -9,9 +9,9 @@ const BallDirection = {
     ctx.fill();
   },
   changeAngle(angle) {
-    ctx.translate(250,685);
+    ctx.translate(canvas.width / 2, canvas.height - 15);
     ctx.rotate(angle * Math.PI/180);
     this.draw();
-    ctx.translate(-250,-685);
+    ctx.translate(-(canvas.width / 2), -(canvas.height - 15));
   }
 }
