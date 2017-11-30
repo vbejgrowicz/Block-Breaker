@@ -5,7 +5,7 @@ const BallDirection = {
     ctx.lineTo(0, -25);
     ctx.lineTo(7.5, -12);
     ctx.lineTo(-7.5, -12);
-    ctx.fillStyle = '#E50010';
+    ctx.fillStyle = '#F10065';
     ctx.fill();
   },
   changeAngle(angle) {
