@@ -9,13 +9,13 @@ body {
 }
 
 .game {
-  margin: auto;
+  margin: 25px auto;
   position: relative;
   display: flex;
   justify-content: center;
   height: 740px;
   width: 500px;
-  background-color: #404040;
+  background-color: black;
 }
 
 .title {
