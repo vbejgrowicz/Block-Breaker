@@ -71,6 +71,11 @@ button {
   z-index: 1;
 }
 
+/*Style for blocks when game over*/
+.game-is-over {
+  opacity: 0.5;
+}
+
 #info-bar {
   position: absolute;
   bottom: 0;

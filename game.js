@@ -100,6 +100,7 @@ const game = (() => {
         startGame();
         document.querySelector('.settings').classList.remove('display-modal');
         document.querySelector('.game-over').classList.remove('display-modal');
+        document.getElementById('blocks').classList.remove('game-is-over');
       });
     }
 

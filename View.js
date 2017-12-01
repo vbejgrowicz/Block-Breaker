@@ -52,5 +52,6 @@ const View = {
       document.querySelector('.results').textContent = 'Try Again!';
     }
     document.querySelector('.game-over').classList.toggle('display-modal');
+    document.getElementById('blocks').classList.toggle('game-is-over');
   }
 }
