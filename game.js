@@ -18,7 +18,6 @@ let startTime;
 let count;
 let currentScore;
 let gameOver;
-let currentCollisions;
 let ballColor = colorPicker.value;
 let highScore = localStorage.getItem('BlockBreakerHighScore') || 0;
 
@@ -27,7 +26,6 @@ const game = (() => {
     localStorage.removeItem("gameStatus");
     balls = [];
     blocks = [];
-    currentCollisions = [];
     gameOver = false;
     launched = false;
     launchAngle = 0;
@@ -126,7 +124,6 @@ const game = (() => {
   const updateCanvas = (timestamp) => {
     requestAnimationFrame(updateCanvas);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    currentCollisions = currentCollisions.filter(collided => (collided.isCollided()));
     if (launched) {
       Objects.createBalls(timestamp);
       balls.length > 0 ? (balls = View.moveBalls(balls)) : (initTurn());
