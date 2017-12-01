@@ -8,6 +8,22 @@ body {
   font-family: 'Work Sans', sans-serif;
 }
 
+button {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  background-color: #0000FF;
+  border: none;
+  width: 230px;
+  height: 40px;
+  margin: 10px auto;
+  font-size: 22px;
+  color: white;
+  outline: none;
+  border-radius: 10px;
+}
+
 .game {
   margin: 25px auto;
   position: relative;
@@ -83,20 +99,6 @@ body {
   right: 5px;
 }
 
-button {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: block;
-  background-color: #0000FF;
-  border: none;
-  width: 230px;
-  height: 40px;
-  margin: 10px auto;
-  font-size: 22px;
-  color: white;
-  outline: none;
-  border-radius: 10px;
 /*Settings Modal*/
 .settings {
   width: 300px;
