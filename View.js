@@ -44,9 +44,12 @@ const View = {
       localStorage.setItem('BlockBreakerHighScore', currentScore);
       highScore = currentScore;
       this.updateHighScore()
-      document.querySelector('.results').textContent = 'New High Score!'
+      document.querySelector('.results').style.color = '#00FF00';
+      document.querySelector('.results').textContent = 'New High Score!';
+
     } else {
-      document.querySelector('.results').textContent = 'Try Again!'
+      document.querySelector('.results').style.color = '#FF0000';
+      document.querySelector('.results').textContent = 'Try Again!';
     }
     document.querySelector('.game-over').classList.toggle('display-modal');
   }
