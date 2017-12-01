@@ -64,24 +64,13 @@ body {
   justify-content: space-between;
 }
 
+/*All Modals*/
 .modal {
   display: none;
   position: absolute;
   align-self: center;
   z-index: 3;
-  border: 5px solid #404040;
-  padding: 10px;
-  width: 300px;
-  background-color: #F600E9;
-}
-
-.game-over {
-  z-index: 2;
-}
-
-.game-results {
-  font-size: 32px;
-  padding: 5px 0;
+  border: 5px solid black;
 }
 
 .display-modal {
@@ -108,6 +97,11 @@ button {
   color: white;
   outline: none;
   border-radius: 10px;
+/*Settings Modal*/
+.settings {
+  width: 300px;
+  padding: 10px;
+  background-color: #FF00B8;
 }
 
 .ball-color-picker {
@@ -121,4 +115,24 @@ button {
   margin: 10px auto;
   width: 70px;
   height: 30px;
+}
+
+/*Game Over Modal*/
+.game-over {
+  z-index: 2;
+  padding: 20px;
+  background-color: #0000FF;
+}
+
+.game-over button.newgame-btn {
+  background-color: #FF00B8;
+}
+
+.game-results {
+  font-size: 55px;
+  padding: 0 0 10px 0;
+}
+
+.results {
+  font-size: 34px;
 }
