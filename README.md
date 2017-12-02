@@ -1,4 +1,8 @@
 # Block-Breaker
+[Play Game Here!](http://vbejgrowicz.github.io/Block-Breaker/)
+
+## Game View
+<img src="/assets/images/Game_View.png" width="400">
 
 ## Summary
 Break the blocks as they come down the screen and make sure they never hit the bottom or else you lose!
