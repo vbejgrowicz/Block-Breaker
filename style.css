@@ -22,6 +22,7 @@ button {
   color: white;
   outline: none;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .game {
@@ -102,9 +103,14 @@ button {
   position: absolute;
   top: 5px;
   right: 5px;
+  cursor: pointer;
 }
 
 /*Settings Modal*/
+.settings-btn {
+  cursor: pointer;
+}
+
 .settings {
   width: 300px;
   padding: 10px;
@@ -122,6 +128,7 @@ button {
   margin: 10px auto;
   width: 70px;
   height: 30px;
+  cursor: pointer;
 }
 
 /*Game Over Modal*/
