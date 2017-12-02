@@ -14,7 +14,7 @@ Press left and right arrow keys to adjust the launch angle, then hit spacebar to
 - Draws graphics on HTML5 Canvas to allow for responsive design.
 - Consistent block generation allows for infinite playing.
 - Object oriented programming in JavaScript.
-- Persists current game data and high score locally.
+- Persists current game status and high score in local storage.
 
 ## Todo
  - [ ] Add in game instructions.
