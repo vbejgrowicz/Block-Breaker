@@ -19,3 +19,4 @@ Press left and right arrow keys to adjust the launch angle, then hit spacebar to
 ## Todo
  - [ ] Add in game instructions.
  - [ ] Implement ball collection during gameplay.
+ - [ ] Implement touch event listeners for mobile gameplay.
